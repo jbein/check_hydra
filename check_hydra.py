@@ -43,7 +43,7 @@ elif mode == 'power':
 
 	perfWattsByLed = ",".join(["=".join([key, str(val*1.0/1000)]) for key, val in wattsByLed.items()])
 
-	print("OK - "+str(watts/1000)+" Watt's are in use. | watt=" + str(watts/1000) + "," + perfWattsByLed)
+	print("OK - " + str(watts/1000) + " Watt's are in use. | watt=" + str(watts/1000) + "," + perfWattsByLed)
         sys.exit(0)
 else:
 	print("UNKNOWN - Mode's are: leds, power")
