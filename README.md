@@ -5,7 +5,7 @@ Monitor your Ai Hydra 26HD with Icinga2.
 
 ./check_hydra.py -h HOST -m MODE
 
-## Mode's
+## Modes
 leds: check the actual value of all LED's with performance-data.
 ```
 
