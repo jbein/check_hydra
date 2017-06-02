@@ -1,6 +1,5 @@
 # check_hydra
-
-With this plugin for Icinga2, you can monitor your Ai Hydra 26HD. 
+Monitor your Ai Hydra 26HD with Icinga2.
 
 ## Usage
 
