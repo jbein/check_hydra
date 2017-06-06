@@ -26,9 +26,9 @@ if mode == 'leds':
         ledNowReq = requests.get("http://" + host + "/api/colors")
         ledNowVal = json.loads(ledNowReq.text)
 
-	leds = ",".join(["=".join([key, str(val*1.0/10)]) for key, val in ledNowVal.items()])
+	leds = " ".join(["=".join([key, str(val*1.0/10)]) for key, val in ledNowVal.items()])
 
-	print("OK - LED's: " + leds + "|" + leds)
+	print("OK - LED's: " + leds + " | " + leds)
 	sys.exit(0)
 
 elif mode == 'power':
@@ -41,9 +41,9 @@ elif mode == 'power':
 		wattsByLed[key] = (value/100 * ledNowVal[key]/10)
 		watts = watts + wattsByLed[key]
 
-	perfWattsByLed = ",".join(["=".join([key, str(val*1.0/1000)]) for key, val in wattsByLed.items()])
+	perfWattsByLed = " ".join(["=".join([key, str(val*1.0/1000)]) for key, val in wattsByLed.items()])
 
-	print("OK - " + str(watts/1000) + " Watt's are in use. | watt=" + str(watts/1000) + "," + perfWattsByLed)
+	print("OK - " + str(watts/1000) + " Watt's are in use. | watt=" + str(watts/1000) + " " + perfWattsByLed)
         sys.exit(0)
 else:
 	print("UNKNOWN - Mode's are: leds, power")
