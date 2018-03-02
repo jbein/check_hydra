@@ -45,6 +45,19 @@ elif mode == 'power':
 
 	print("OK - " + str(watts/1000) + " Watt's are in use. | watt=" + str(watts/1000) + " " + perfWattsByLed)
         sys.exit(0)
+elif mode == 'checkfirmware':
+        fwReq = requests.get("http://" + host + "/api/firmware/changelog")
+        fwVal = json.loads(fwReq.text)
+
+        if fwVal['new_version'] == False:
+            print("OK - No update availavble. Current version: " + fwVal['current_version'])
+            sys.exit(0)
+        elif fwVal['new_version'] is True:
+            print("WARNING - New Version available: " + fwVal['next_version'] + ". Current version: " + fwVal['current_version'])
+            sys.exit(1)
+        else:
+            print("UNKNOWN - Firmware is not checkable!")
+	    sys.exit(3)
 else:
-	print("UNKNOWN - Mode's are: leds, power")
+	print("UNKNOWN - Mode's are: leds, power, checkfirmware")
 	sys.exit(3)
